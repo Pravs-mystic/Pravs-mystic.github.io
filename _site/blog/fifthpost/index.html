@@ -227,12 +227,13 @@ body {
 	font-family: var(--font-family);
 	color: var(--text-color);
 	background-color: var(--background-color);
+	text-align: justify;
 }
 html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 40em;
+	max-width: 50em;
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -446,6 +447,19 @@ a[href].header-anchor:focus,
 
 h2 + .header-anchor {
 	font-size: 1.5em;
+}
+
+.centered-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+
+.image-caption {
+	text-align: center;
+	font-style: italic;
+	font-family: 'Verdana, sans-serif';
+	padding: 10px 0 10px 0;
 }</style>
 	</head>
 	<body>
@@ -473,7 +487,7 @@ h2 + .header-anchor {
 
 <p>This is a draft post</p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/blog/fourthpost/">This is my fourth post.</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/blog/fourthpost/">This is my fourth post.</a></li><li>Next: <a href="/blog/Firstpost/firstpost/">7 Everyday Docker Hacks - Making Life a Byte Easier!</a></li>
 </ul>
 
 		</main>

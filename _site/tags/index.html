@@ -8,25 +8,7 @@
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="CuriousCappuccino">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="CuriousCappuccino">
 		
-		<style>/* Message Box */
-.message-box {
-	--color-message-box: #ffc;
-
-	display: block;
-	background-color: var(--color-message-box);
-	color: var(--color-gray-90);
-	padding: 1em 0.625em; /* 16px 10px /16 */
-}
-.message-box ol {
-	margin-top: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-	.message-box {
-		--color-message-box: #082840;
-	}
-}
-* { box-sizing: border-box; }
+		<style>* { box-sizing: border-box; }
 /* Defaults */
 :root {
 	--font-family: -apple-system, system-ui, sans-serif;
@@ -77,12 +59,13 @@ body {
 	font-family: var(--font-family);
 	color: var(--text-color);
 	background-color: var(--background-color);
+	text-align: justify;
 }
 html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 40em;
+	max-width: 50em;
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -296,6 +279,19 @@ a[href].header-anchor:focus,
 
 h2 + .header-anchor {
 	font-size: 1.5em;
+}
+
+.centered-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+
+.image-caption {
+	text-align: center;
+	font-style: italic;
+	font-family: 'Verdana, sans-serif';
+	padding: 10px 0 10px 0;
 }</style>
 	</head>
 	<body>
@@ -314,23 +310,10 @@ h2 + .header-anchor {
 		</header>
 
 		<main id="skip">
-			<!-- Delete this message, it will also remove the component CSS from the bundle -->
-<div class="message-box">
-	<ol>
-		<li>Edit the <code>_data/metadata.js</code> with your blog’s information.</li>
-		<li>(Optional) Edit <code>eleventy.config.js</code> with your <a href="https://www.11ty.dev/docs/config/">configuration preferences</a>.</li>
-		<li>Delete this message from <code>_includes/layouts/home.njk</code>.</li>
-	</ol>
-	<p><em>This is an <a href="https://www.11ty.dev/">Eleventy project</a> created from the <a href="https://github.com/11ty/eleventy-base-blog"><code>eleventy-base-blog</code> repo</a>.</em></p>
-</div>
-<!-- Stop deleting -->
-
+			
 <h1>Tags</h1>
 
 <ul>
-
-	
-	<li><a href="/tags/another-tag/" class="post-tag">another tag</a></li>
 
 	
 	<li><a href="/tags/number-2/" class="post-tag">number 2</a></li>
@@ -340,6 +323,9 @@ h2 + .header-anchor {
 
 	
 	<li><a href="/tags/posts-with-two-tags/" class="post-tag">posts with two tags</a></li>
+
+	
+	<li><a href="/tags/docker-docker-hacks-docker-container-containerization-what-is-docker-docker-explained-docker-simplified/" class="post-tag">docker, docker hacks, docker container, containerization, what is docker, docker explained, docker simplified</a></li>
 
 </ul>
 

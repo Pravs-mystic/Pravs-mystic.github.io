@@ -4,12 +4,114 @@
 	<subtitle>Brewed with curiosity and a dash of innovation, my blog serves up a steaming cup of fascinating insights and mind-blowing facts on the latest tech trends. Sip your way through the captivating aroma of our tech-based musings!</subtitle>
 	<link href="https://curiouscapp.in/feed/feed.xml" rel="self"/>
 	<link href="https://curiouscapp.in/"/>
-	<updated>2023-01-23T00:00:00Z</updated>
+	<updated>2023-10-16T00:00:00Z</updated>
 	<id>https://curiouscapp.in/</id>
 	<author>
 		<name>Pravalli Budida</name>
 		<email>pravalli.lella@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>7 Everyday Docker Hacks - Making Life a Byte Easier!</title>
+		<link href="https://curiouscapp.in/blog/Firstpost/firstpost/"/>
+		<updated>2023-10-16T00:00:00Z</updated>
+		<id>https://curiouscapp.in/blog/Firstpost/firstpost/</id>
+		<content type="html">&lt;p&gt;🚢 Today, we’re diving deep into the ocean of Docker, exploring some everyday hacks that can make our developer lives a smidge easier. But fear not, we won’t be swimming with the technical sharks today, we’re keeping it light, floaty, and fun!&lt;/p&gt;
+ &lt;figure&gt;
+ &lt;img class=&quot;centered-image&quot; src=&quot;https://curiouscapp.in/img/dockerart.png&quot; alt=&quot;Docker&quot; title=&quot;Docker&quot; width=&quot;500&quot; height=&quot;300&quot;&gt;
+ &lt;figcaption class=&quot;image-caption&quot;&gt;Docker&lt;/figcaption&gt;
+ &lt;/figure&gt;
+&lt;p&gt;So what is docker? Docker, in the simplest terms, is a platform designed to make it easier for developers to create, deploy, and run applications by using containers. Imagine a container as a box (not the boring, square kind, but a cool, virtual one! 📦). This box holds everything needed to run an application - the code, runtime, libraries, and system tools. Essentially, Docker ensures that the app will run the same, regardless of where the container is deployed.&lt;/p&gt;
+&lt;p&gt;For those who do not understand the technicalities, let me help you understand it better with a Food Truck Festival Analogy 🚚🍔&lt;/p&gt;
+&lt;h2 id=&quot;relating-food-truck-to-docker-container&quot; tabindex=&quot;-1&quot;&gt;Relating Food Truck to Docker Container &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Picture this:&lt;/em&gt;
+You’re at a bustling food truck festival, where each food truck offers a unique culinary delight, operating independently of the others. Each truck comes equipped with its own ingredients, chefs, utilities, and recipes, ensuring it can whip up its specialties without relying on external resources.&lt;/p&gt;
+&lt;p&gt;Now, let’s relate this to Docker:&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://curiouscapp.in/img/docker_foodtruck.png&quot; alt=&quot;Diagram illustrating Docker and food trucks analogy&quot; width=&quot;500&quot; height=&quot;250&quot; class=&quot;centered-image&quot;&gt;
+  &lt;figcaption class=&quot;image-caption&quot;&gt;Food Truck Festival: A Docker Analogy&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;em&gt;Food Trucks = Docker Containers&lt;/em&gt;: Just like how each food truck is self-sufficient, Docker containers encapsulate all the necessary ingredients (code, runtime, libraries) required to run an application.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Festival Ground = Your Computer&lt;/em&gt;: The festival ground that hosts all the food trucks is akin to your computer providing a platform for Docker containers.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Diverse Cuisines = Different Applications&lt;/em&gt;: The variety of dishes offered by the trucks symbolizes different applications in Docker, each with its unique prerequisites and environments, yet coexisting harmoniously.&lt;/p&gt;
+&lt;p&gt;Both provide a platform where independent entities (be it food trucks or applications) can operate smoothly without interfering with each other, despite having varied requirements and environments.&lt;/p&gt;
+&lt;p&gt;Let&#39;s explore how Docker simplifies the execution of complex tasks that would otherwise require extensive setup.&lt;/p&gt;
+&lt;h2 id=&quot;7-docker-hacks-for-your-daily-tech-life&quot; tabindex=&quot;-1&quot;&gt;7 Docker Hacks for Your Daily Tech Life &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;1-run-temporary-databases-for-testing&quot; tabindex=&quot;-1&quot;&gt;1. Run Temporary Databases for Testing &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;steps&quot; tabindex=&quot;-1&quot;&gt;Steps: &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Open Terminal&lt;/strong&gt;: Open your terminal or command prompt.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Run MySQL Container&lt;/strong&gt;: Execute the following command.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; run &lt;span class=&quot;token parameter variable&quot;&gt;--name&lt;/span&gt; temp-mysql &lt;span class=&quot;token parameter variable&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;my-secret-pw &lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3306&lt;/span&gt;:3306 &lt;span class=&quot;token parameter variable&quot;&gt;-d&lt;/span&gt; mysql:latest &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Your container for mysql is created. Now, you can connect to the MySQL server by executing a bash shell inside the container and then using the MySQL client from there:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-it&lt;/span&gt; temp-mysql &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;💡 After running the command, you can connect to MySQL using the root password &lt;code&gt;my-secret-pw&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;2-quick-web-server-for-file-sharing&quot; tabindex=&quot;-1&quot;&gt;2. Quick Web Server for File Sharing &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;steps-1&quot; tabindex=&quot;-1&quot;&gt;Steps: &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Open Terminal&lt;/strong&gt;: Open your terminal or command prompt and go to the directory where your website is located.For testing purpose, you can create a simple index.html file in your directory and serve it using the following command.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Run Nginx Container&lt;/strong&gt;: Execute the following command.&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; run &lt;span class=&quot;token parameter variable&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;pwd&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;:/usr/share/nginx/html:ro &lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8080&lt;/span&gt;:80 nginx&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This command starts a new container using the nginx image where &lt;code&gt;-v $(pwd):/usr/share/nginx/html:ro&lt;/code&gt; mounts the current directory to the /usr/share/nginx/html directory inside the container, and it is mounted as read-only.
+💡 Your current directory will be accessible at &lt;code&gt;http://localhost:8080&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;3-run-multiple-versions-of-software&quot; tabindex=&quot;-1&quot;&gt;3. Run Multiple Versions of Software &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;steps-2&quot; tabindex=&quot;-1&quot;&gt;Steps: &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Open Terminal&lt;/strong&gt;: Open your terminal or command prompt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Run Python Containers&lt;/strong&gt;: Execute the following commands.&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; run &lt;span class=&quot;token parameter variable&quot;&gt;-it&lt;/span&gt; python:2.7 python
+&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; run &lt;span class=&quot;token parameter variable&quot;&gt;-it&lt;/span&gt; python:3.8 python&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;💡 You&#39;ll have two separate Python shells, one for version 2.7 and another for 3.8.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;4-isolate-development-environments&quot; tabindex=&quot;-1&quot;&gt;4. Isolate Development Environments &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;steps-3&quot; tabindex=&quot;-1&quot;&gt;Steps: &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Open Terminal&lt;/strong&gt;: Open your terminal or command prompt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Run Python Environment&lt;/strong&gt;: Execute the following command.&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; run &lt;span class=&quot;token parameter variable&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--name&lt;/span&gt; my_project_env python:3.8 &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;💡 You&#39;ll be inside a Python 3.8 environment isolated from your local system. This is particularly useful when you need to work with different versions of languages, libraries, or databases for different projects.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;5-test-rest-apis&quot; tabindex=&quot;-1&quot;&gt;5. Test REST APIs &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;steps-4&quot; tabindex=&quot;-1&quot;&gt;Steps: &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Open Terminal&lt;/strong&gt;: Open your terminal or command prompt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Run Postman&lt;/strong&gt;: Execute the following command.&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; run &lt;span class=&quot;token parameter variable&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4545&lt;/span&gt;:4545 postman/newman_ubuntu1404 run &lt;span class=&quot;token string&quot;&gt;&quot;https://www.getpostman.com/collections/8a0c9bc08f062d12dcda&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;💡 This will run a Postman collection and display the results.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;6-run-code-snippets&quot; tabindex=&quot;-1&quot;&gt;6. Run Code Snippets &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;steps-5&quot; tabindex=&quot;-1&quot;&gt;Steps: &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Open Terminal&lt;/strong&gt;: Open your terminal or command prompt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Run NodeJS Code&lt;/strong&gt;: Execute the following command.&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; run &lt;span class=&quot;token parameter variable&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--rm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;console.log(&#39;Hello, World!&#39;)&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;💡 This will display &amp;quot;Hello, World!&amp;quot; in the terminal.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;7-generate-passwords&quot; tabindex=&quot;-1&quot;&gt;7. Generate Passwords &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id=&quot;steps-6&quot; tabindex=&quot;-1&quot;&gt;Steps: &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/Firstpost/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Open Terminal&lt;/strong&gt;: Open your terminal or command prompt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generate Password&lt;/strong&gt;: Execute the following command.&lt;pre class=&quot;language-bash&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;docker&lt;/span&gt; run &lt;span class=&quot;token parameter variable&quot;&gt;--rm&lt;/span&gt; frapsoft/openssl rand &lt;span class=&quot;token parameter variable&quot;&gt;-base64&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;32&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;💡 This will generate a secure, random password.&lt;/p&gt;
+&lt;p&gt;But wait, the Docker journey doesn’t end here! Imagine creating your own custom environments, tinkering with different technologies, or even building and sharing your Docker images with a community of like-minded developers. The possibilities are as vast and endless as the ocean itself!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;© 2023 by Curious Cappuccino blog.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>This is a fifth post (draft)</title>
@@ -77,28 +179,6 @@ console.log(&#39;Test&#39;);
 &lt;a href=&quot;https://curiouscapp.in/blog/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
-</content>
-	</entry>
-	
-	<entry>
-		<title>This is my first post.</title>
-		<link href="https://curiouscapp.in/blog/firstpost/"/>
-		<updated>2018-05-01T00:00:00Z</updated>
-		<id>https://curiouscapp.in/blog/firstpost/</id>
-		<content type="html">&lt;p&gt;Leverage agttjjftrfvtdttbfuftff ile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
-&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
-&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;header-anchor&quot; href=&quot;https://curiouscapp.in/blog/firstpost/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
-&lt;pre class=&quot;language-diff-js&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-diff-js&quot;&gt;&lt;span class=&quot;token unchanged language-js&quot;&gt;&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;// this is a command&lt;/span&gt;
-&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;myCommand&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;span class=&quot;token inserted-sign inserted language-js&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;span class=&quot;token deleted-sign deleted language-js&quot;&gt;&lt;span class=&quot;token prefix deleted&quot;&gt;-&lt;/span&gt;  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;span class=&quot;token unchanged language-js&quot;&gt;&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;  counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;/span&gt;
-&lt;span class=&quot;token unchanged language-js&quot;&gt;&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;// Test with a line break above this line.&lt;/span&gt;
-&lt;span class=&quot;token prefix unchanged&quot;&gt; &lt;/span&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Test&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 </content>
 	</entry>
 </feed>

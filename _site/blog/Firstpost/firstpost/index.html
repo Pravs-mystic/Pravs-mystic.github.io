@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>7 Everyday Docker Hacks - Making Life a Byte Easier!</title>
+		<meta name="description" content="This is a post on Curious Cappuccino Blog about everyday docker hacks.">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="CuriousCappuccino">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="CuriousCappuccino">
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+	text-align: justify;
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 50em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+.centered-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+
+.image-caption {
+	text-align: center;
+	font-style: italic;
+	font-family: 'Verdana, sans-serif';
+	padding: 10px 0 10px 0;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">CuriousCappuccino</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>7 Everyday Docker Hacks - Making Life a Byte Easier!</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2023-10-16">16 October 2023</time></li>
+	<li><a href="/tags/docker-docker-hacks-docker-container-containerization-what-is-docker-docker-explained-docker-simplified/" class="post-tag">docker, docker hacks, docker container, containerization, what is docker, docker explained, docker simplified</a></li>
+</ul>
+
+<p>🚢 Today, we’re diving deep into the ocean of Docker, exploring some everyday hacks that can make our developer lives a smidge easier. But fear not, we won’t be swimming with the technical sharks today, we’re keeping it light, floaty, and fun!</p>
+ <figure>
+ <img class = 'centered-image' src="/img/dockerart.png" alt="Docker" title="Docker" width="500" height="300">
+ <figcaption class="image-caption">Docker</figcaption>
+ </figure>
+<p>So what is docker? Docker, in the simplest terms, is a platform designed to make it easier for developers to create, deploy, and run applications by using containers. Imagine a container as a box (not the boring, square kind, but a cool, virtual one! 📦). This box holds everything needed to run an application - the code, runtime, libraries, and system tools. Essentially, Docker ensures that the app will run the same, regardless of where the container is deployed.</p>
+<p>For those who do not understand the technicalities, let me help you understand it better with a Food Truck Festival Analogy 🚚🍔</p>
+<h2 id="relating-food-truck-to-docker-container" tabindex="-1">Relating Food Truck to Docker Container <a class="header-anchor" href="#relating-food-truck-to-docker-container">#</a></h2>
+<p><em>Picture this:</em>
+You’re at a bustling food truck festival, where each food truck offers a unique culinary delight, operating independently of the others. Each truck comes equipped with its own ingredients, chefs, utilities, and recipes, ensuring it can whip up its specialties without relying on external resources.</p>
+<p>Now, let’s relate this to Docker:</p>
+<figure>
+  <img src="/img/docker_foodtruck.png" alt="Diagram illustrating Docker and food trucks analogy" width="500" height="250" class="centered-image">
+  <figcaption class="image-caption">Food Truck Festival: A Docker Analogy</figcaption>
+</figure>
+<p><em>Food Trucks = Docker Containers</em>: Just like how each food truck is self-sufficient, Docker containers encapsulate all the necessary ingredients (code, runtime, libraries) required to run an application.</p>
+<p><em>Festival Ground = Your Computer</em>: The festival ground that hosts all the food trucks is akin to your computer providing a platform for Docker containers.</p>
+<p><em>Diverse Cuisines = Different Applications</em>: The variety of dishes offered by the trucks symbolizes different applications in Docker, each with its unique prerequisites and environments, yet coexisting harmoniously.</p>
+<p>Both provide a platform where independent entities (be it food trucks or applications) can operate smoothly without interfering with each other, despite having varied requirements and environments.</p>
+<p>Let's explore how Docker simplifies the execution of complex tasks that would otherwise require extensive setup.</p>
+<h2 id="7-docker-hacks-for-your-daily-tech-life" tabindex="-1">7 Docker Hacks for Your Daily Tech Life <a class="header-anchor" href="#7-docker-hacks-for-your-daily-tech-life">#</a></h2>
+<h3 id="1-run-temporary-databases-for-testing" tabindex="-1">1. Run Temporary Databases for Testing <a class="header-anchor" href="#1-run-temporary-databases-for-testing">#</a></h3>
+<h4 id="steps" tabindex="-1">Steps: <a class="header-anchor" href="#steps">#</a></h4>
+<ol>
+<li>
+<p><strong>Open Terminal</strong>: Open your terminal or command prompt.</p>
+</li>
+<li>
+<p><strong>Run MySQL Container</strong>: Execute the following command.</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--name</span> temp-mysql <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>my-secret-pw <span class="token parameter variable">-p</span> <span class="token number">3306</span>:3306 <span class="token parameter variable">-d</span> mysql:latest </code></pre>
+<p>Your container for mysql is created. Now, you can connect to the MySQL server by executing a bash shell inside the container and then using the MySQL client from there:</p>
+<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> temp-mysql <span class="token function">bash</span> </code></pre>
+</li>
+</ol>
+<p>💡 After running the command, you can connect to MySQL using the root password <code>my-secret-pw</code>.</p>
+<hr>
+<h3 id="2-quick-web-server-for-file-sharing" tabindex="-1">2. Quick Web Server for File Sharing <a class="header-anchor" href="#2-quick-web-server-for-file-sharing">#</a></h3>
+<h4 id="steps-1" tabindex="-1">Steps: <a class="header-anchor" href="#steps-1">#</a></h4>
+<ol>
+<li><strong>Open Terminal</strong>: Open your terminal or command prompt and go to the directory where your website is located.For testing purpose, you can create a simple index.html file in your directory and serve it using the following command.</li>
+<li><strong>Run Nginx Container</strong>: Execute the following command.<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-v</span> <span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>:/usr/share/nginx/html:ro <span class="token parameter variable">-p</span> <span class="token number">8080</span>:80 nginx</code></pre>
+</li>
+</ol>
+<p>This command starts a new container using the nginx image where <code>-v $(pwd):/usr/share/nginx/html:ro</code> mounts the current directory to the /usr/share/nginx/html directory inside the container, and it is mounted as read-only.
+💡 Your current directory will be accessible at <code>http://localhost:8080</code>.</p>
+<hr>
+<h3 id="3-run-multiple-versions-of-software" tabindex="-1">3. Run Multiple Versions of Software <a class="header-anchor" href="#3-run-multiple-versions-of-software">#</a></h3>
+<h4 id="steps-2" tabindex="-1">Steps: <a class="header-anchor" href="#steps-2">#</a></h4>
+<ol>
+<li><strong>Open Terminal</strong>: Open your terminal or command prompt.</li>
+<li><strong>Run Python Containers</strong>: Execute the following commands.<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-it</span> python:2.7 python
+<span class="token function">docker</span> run <span class="token parameter variable">-it</span> python:3.8 python</code></pre>
+</li>
+</ol>
+<p>💡 You'll have two separate Python shells, one for version 2.7 and another for 3.8.</p>
+<hr>
+<h3 id="4-isolate-development-environments" tabindex="-1">4. Isolate Development Environments <a class="header-anchor" href="#4-isolate-development-environments">#</a></h3>
+<h4 id="steps-3" tabindex="-1">Steps: <a class="header-anchor" href="#steps-3">#</a></h4>
+<ol>
+<li><strong>Open Terminal</strong>: Open your terminal or command prompt.</li>
+<li><strong>Run Python Environment</strong>: Execute the following command.<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-it</span> <span class="token parameter variable">--name</span> my_project_env python:3.8 <span class="token function">bash</span></code></pre>
+</li>
+</ol>
+<p>💡 You'll be inside a Python 3.8 environment isolated from your local system. This is particularly useful when you need to work with different versions of languages, libraries, or databases for different projects.</p>
+<hr>
+<h3 id="5-test-rest-apis" tabindex="-1">5. Test REST APIs <a class="header-anchor" href="#5-test-rest-apis">#</a></h3>
+<h4 id="steps-4" tabindex="-1">Steps: <a class="header-anchor" href="#steps-4">#</a></h4>
+<ol>
+<li><strong>Open Terminal</strong>: Open your terminal or command prompt.</li>
+<li><strong>Run Postman</strong>: Execute the following command.<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-p</span> <span class="token number">4545</span>:4545 postman/newman_ubuntu1404 run <span class="token string">"https://www.getpostman.com/collections/8a0c9bc08f062d12dcda"</span></code></pre>
+</li>
+</ol>
+<p>💡 This will run a Postman collection and display the results.</p>
+<hr>
+<h3 id="6-run-code-snippets" tabindex="-1">6. Run Code Snippets <a class="header-anchor" href="#6-run-code-snippets">#</a></h3>
+<h4 id="steps-5" tabindex="-1">Steps: <a class="header-anchor" href="#steps-5">#</a></h4>
+<ol>
+<li><strong>Open Terminal</strong>: Open your terminal or command prompt.</li>
+<li><strong>Run NodeJS Code</strong>: Execute the following command.<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-it</span> <span class="token parameter variable">--rm</span> <span class="token function">node</span> <span class="token function">node</span> <span class="token parameter variable">-e</span> <span class="token string">"console.log('Hello, World!')"</span></code></pre>
+</li>
+</ol>
+<p>💡 This will display &quot;Hello, World!&quot; in the terminal.</p>
+<hr>
+<h3 id="7-generate-passwords" tabindex="-1">7. Generate Passwords <a class="header-anchor" href="#7-generate-passwords">#</a></h3>
+<h4 id="steps-6" tabindex="-1">Steps: <a class="header-anchor" href="#steps-6">#</a></h4>
+<ol>
+<li><strong>Open Terminal</strong>: Open your terminal or command prompt.</li>
+<li><strong>Generate Password</strong>: Execute the following command.<pre class="language-bash" tabindex="0"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">--rm</span> frapsoft/openssl rand <span class="token parameter variable">-base64</span> <span class="token number">32</span></code></pre>
+</li>
+</ol>
+<p>💡 This will generate a secure, random password.</p>
+<p>But wait, the Docker journey doesn’t end here! Imagine creating your own custom environments, tinkering with different technologies, or even building and sharing your Docker images with a community of like-minded developers. The possibilities are as vast and endless as the ocean itself!</p>
+<hr>
+<p>© 2023 by Curious Cappuccino blog.</p>
+
+<ul class="links-nextprev"><li>Previous: <a href="/blog/fifthpost/">This is a fifth post (draft)</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- Current page: /blog/Firstpost/firstpost/ -->
+	</body>
+</html>
