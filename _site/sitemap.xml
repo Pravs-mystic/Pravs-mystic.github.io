@@ -2,27 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
-		<loc>https://curiouscapp.in/blog/secondpost/</loc>
-		<lastmod>2018-07-04</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://curiouscapp.in/blog/thirdpost/</loc>
-		<lastmod>2018-08-24</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://curiouscapp.in/blog/fifthpost/</loc>
-		<lastmod>2023-01-23</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://curiouscapp.in/blog/Firstpost/firstpost/</loc>
+		<loc>https://curiouscapp.in/blog/dockerpost/</loc>
 		<lastmod>2023-10-16</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://curiouscapp.in/blog/GenAI/genai/</loc>
+		<loc>https://curiouscapp.in/blog/genai/</loc>
 		<lastmod>2023-12-31</lastmod>
 	</url>
 	
@@ -43,21 +28,6 @@
 	
 	<url>
 		<loc>https://curiouscapp.in/tags/</loc>
-		<lastmod>2023-12-31</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://curiouscapp.in/tags/number-2/</loc>
-		<lastmod>2023-12-31</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://curiouscapp.in/tags/second-tag/</loc>
-		<lastmod>2023-12-31</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://curiouscapp.in/tags/posts-with-two-tags/</loc>
 		<lastmod>2023-12-31</lastmod>
 	</url>
 	
