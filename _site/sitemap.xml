@@ -12,11 +12,6 @@
 	</url>
 	
 	<url>
-		<loc>https://curiouscapp.in/blog/fourthpost/</loc>
-		<lastmod>2018-09-30</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://curiouscapp.in/blog/fifthpost/</loc>
 		<lastmod>2023-01-23</lastmod>
 	</url>
@@ -27,42 +22,52 @@
 	</url>
 	
 	<url>
+		<loc>https://curiouscapp.in/blog/GenAI/genai/</loc>
+		<lastmod>2023-12-31</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://curiouscapp.in/about/</loc>
-		<lastmod>2023-10-16</lastmod>
+		<lastmod>2023-12-31</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://curiouscapp.in/blog/</loc>
-		<lastmod>2023-10-16</lastmod>
+		<lastmod>2023-12-31</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://curiouscapp.in/</loc>
-		<lastmod>2023-10-16</lastmod>
+		<lastmod>2023-12-31</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://curiouscapp.in/tags/</loc>
-		<lastmod>2023-10-16</lastmod>
+		<lastmod>2023-12-31</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://curiouscapp.in/tags/number-2/</loc>
-		<lastmod>2023-10-16</lastmod>
+		<lastmod>2023-12-31</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://curiouscapp.in/tags/second-tag/</loc>
-		<lastmod>2023-10-16</lastmod>
+		<lastmod>2023-12-31</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://curiouscapp.in/tags/posts-with-two-tags/</loc>
-		<lastmod>2023-10-16</lastmod>
+		<lastmod>2023-12-31</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://curiouscapp.in/tags/docker-docker-hacks-docker-container-containerization-what-is-docker-docker-explained-docker-simplified/</loc>
-		<lastmod>2023-10-16</lastmod>
+		<lastmod>2023-12-31</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://curiouscapp.in/tags/generative-ai-ai-neural-networks-how-ai-creates-new-images/</loc>
+		<lastmod>2023-12-31</lastmod>
 	</url>
 </urlset>
