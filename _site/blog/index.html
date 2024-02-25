@@ -1,341 +1,49 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>CuriousCappuccino</title>
-		<meta name="description" content="Brewed with curiosity and a dash of innovation, my blog serves up a steaming cup of fascinating insights and mind-blowing facts on the latest tech trends. Sip your way through the captivating aroma of our tech-based musings!">
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="CuriousCappuccino">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="CuriousCappuccino">
-		
-		<style>.postlist { counter-reset: start-from 3 }
-* { box-sizing: border-box; }
-/* Defaults */
-:root {
-	--font-family: -apple-system, system-ui, sans-serif;
-	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
-}
-
-/* Theme colors */
-:root {
-	--color-gray-20: #e0e0e0;
-	--color-gray-50: #C0C0C0;
-	--color-gray-90: #333;
-
-	--background-color: #fff;
-
-	--text-color: var(--color-gray-90);
-	--text-color-link: #082840;
-	--text-color-link-active: #5f2b48;
-	--text-color-link-visited: #17050F;
-
-	--syntax-tab-size: 2;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-gray-20: #e0e0e0;
-		--color-gray-50: #C0C0C0;
-		--color-gray-90: #dad8d8;
-
-		/* --text-color is assigned to --color-gray-_ above */
-		--text-color-link: #1493fb;
-		--text-color-link-active: #6969f7;
-		--text-color-link-visited: #a6a6f8;
-
-		--background-color: #15202b;
-	}
-}
-
-
-/* Global stylesheet */
-* {
-	box-sizing: border-box;
-}
-
-html,
-body {
-	padding: 0;
-	margin: 0 auto;
-	font-family: var(--font-family);
-	color: var(--text-color);
-	background-color: var(--background-color);
-	text-align: justify;
-}
-html {
-	overflow-y: scroll;
-}
-body {
-	max-width: 50em;
-}
-
-/* https://www.a11yproject.com/posts/how-to-hide-content/ */
-.visually-hidden {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
-}
-
-p:last-child {
-	margin-bottom: 0;
-}
-p {
-	line-height: 1.5;
-}
-
-li {
-	line-height: 1.5;
-}
-
-a[href] {
-	color: var(--text-color-link);
-}
-a[href]:visited {
-	color: var(--text-color-link-visited);
-}
-a[href]:hover,
-a[href]:active {
-	color: var(--text-color-link-active);
-}
-
-main {
-	padding: 1rem;
-}
-main :first-child {
-	margin-top: 0;
-}
-
-header {
-	border-bottom: 1px dashed var(--color-gray-20);
-}
-header:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-.links-nextprev {
-	list-style: none;
-	border-top: 1px dashed var(--color-gray-20);
-	padding: 1em 0;
-}
-
-table {
-	margin: 1em 0;
-}
-table td,
-table th {
-	padding-right: 1em;
-}
-
-pre,
-code {
-	font-family: var(--font-family-monospace);
-}
-pre:not([class*="language-"]) {
-	margin: .5em 0;
-	line-height: 1.375; /* 22px /16 */
-	-moz-tab-size: var(--syntax-tab-size);
-	-o-tab-size: var(--syntax-tab-size);
-	tab-size: var(--syntax-tab-size);
-	-webkit-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-}
-code {
-	word-break: break-all;
-}
-
-/* Header */
-header {
-	display: flex;
-	gap: 1em .5em;
-	flex-wrap: wrap;
-	align-items: center;
-	padding: 1em;
-}
-.home-link {
-	font-size: 1em; /* 16px /16 */
-	font-weight: 700;
-	margin-right: 2em;
-}
-.home-link:link:not(:hover) {
-	text-decoration: none;
-}
-
-/* Nav */
-.nav {
-	display: flex;
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
-.nav-item {
-	display: inline-block;
-	margin-right: 1em;
-}
-.nav-item a[href]:not(:hover) {
-	text-decoration: none;
-}
-.nav a[href][aria-current="page"] {
-	text-decoration: underline;
-}
-
-/* Posts list */
-.postlist {
-	list-style: none;
-	padding: 0;
-	padding-left: 1.5rem;
-}
-.postlist-item {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
-	counter-increment: start-from -1;
-	margin-bottom: 1em;
-}
-.postlist-item:before {
-	display: inline-block;
-	pointer-events: none;
-	content: "" counter(start-from, decimal-leading-zero) ". ";
-	line-height: 100%;
-	text-align: right;
-	margin-left: -1.5rem;
-}
-.postlist-date,
-.postlist-item:before {
-	font-size: 0.8125em; /* 13px /16 */
-	color: var(--color-gray-90);
-}
-.postlist-date {
-	word-spacing: -0.5px;
-}
-.postlist-link {
-	font-size: 1.1875em; /* 19px /16 */
-	font-weight: 700;
-	flex-basis: calc(100% - 1.5rem);
-	padding-left: .25em;
-	padding-right: .5em;
-	text-underline-position: from-font;
-	text-underline-offset: 0;
-	text-decoration-thickness: 1px;
-}
-.postlist-item-active .postlist-link {
-	font-weight: bold;
-}
-
-/* Tags */
-.post-tag {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-transform: capitalize;
-	font-style: italic;
-}
-.postlist-item > .post-tag {
-	align-self: center;
-}
-
-/* Tags list */
-.post-metadata {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: .5em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.post-metadata time {
-	margin-right: 1em;
-}
-
-/* Direct Links / Markdown Headers */
-.header-anchor {
-	text-decoration: none;
-	font-style: normal;
-	font-size: 1em;
-	margin-left: .1em;
-}
-a[href].header-anchor,
-a[href].header-anchor:visited {
-	color: transparent;
-}
-a[href].header-anchor:focus,
-a[href].header-anchor:hover {
-	text-decoration: underline;
-}
-a[href].header-anchor:focus,
-:hover > a[href].header-anchor {
-	color: #aaa;
-}
-
-h2 + .header-anchor {
-	font-size: 1.5em;
-}
-
-.centered-image {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-  }
-
-.image-caption {
-	text-align: center;
-	font-style: italic;
-	font-family: 'Verdana, sans-serif';
-	padding: 10px 0 10px 0;
-}</style>
-	</head>
-	<body>
-		<a href="#skip" class="visually-hidden">Skip to main content</a>
-
-		<header>
-			<a href="/" class="home-link">CuriousCappuccino</a>
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
-				<ul class="nav">
-					<li class="nav-item"><a href="/">Home</a></li>
-					<li class="nav-item"><a href="/blog/" aria-current="page">Archive</a></li>
-					<li class="nav-item"><a href="/about/">About Me</a></li>
-				</ul>
-			</nav>
-		</header>
-
-		<main id="skip">
-			
-<h1>Archive</h1>
-
-
-
-<ol reversed class="postlist">
-
-	<li class="postlist-item">
-		<a href="/blog/genai/" class="postlist-link">Inside the Brain of Generative AI - How It Comes Up with New Ideas!!.</a>
-		<time class="postlist-date" datetime="2023-12-31">December 2023</time>
-	</li>
-
-	<li class="postlist-item">
-		<a href="/blog/dockerpost/" class="postlist-link">7 Everyday Docker Hacks - Making Life a Byte Easier!</a>
-		<time class="postlist-date" datetime="2023-10-16">October 2023</time>
-	</li>
-
-</ol>
-
-
-
-		</main>
-
-		<footer></footer>
-
-		<!-- Current page: /blog/ -->
-	</body>
-</html>
+<!doctype html><html lang="en" class="no-js"><head><title>Blog | Curious Cappuccino Blog</title><link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png"><link rel="manifest" href="/img/favicons/site.webmanifest"><meta name="msapplication-TileColor" content="#2b5797"><meta name="theme-color" content="#ffffff"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="eleventy-react"><meta name="description" content="A list of the site posts"><style data-styled="true" data-styled-version="5.2.1">html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}/*!sc*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}/*!sc*/
+body{line-height:1;}/*!sc*/
+ol,ul{list-style:none;}/*!sc*/
+blockquote,q{quotes:none;}/*!sc*/
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}/*!sc*/
+table{border-collapse:collapse;border-spacing:0;}/*!sc*/
+*{box-sizing:border-box;}/*!sc*/
+html{margin:0;font-size:112.5%;}/*!sc*/
+body{font-family:-apple-system,BlinkMacSystemFont, “Segoe UI”,“Roboto”,“Oxygen”,“Ubuntu”,“Cantarell”, “Fira Sans”,“Droid Sans”,“Helvetica Neue”, sans-serif;font-size:1rem;line-height:1.4;color:#3B4252;background:#ffffff;}/*!sc*/
+data-styled.g1[id="sc-global-bAewZY1"]{content:"sc-global-bAewZY1,"}/*!sc*/
+.kQMdaH{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}/*!sc*/
+.kQMdaH > * + *{margin-left:1rem;}/*!sc*/
+data-styled.g2[id="sc-bdfBwQ"]{content:"kQMdaH,hcOIfc,"}/*!sc*/
+.mOaTa{color:#5E81AC;-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.czwsVI{color:#5E81AC;-webkit-text-decoration:underline;text-decoration:underline;-webkit-text-decoration:none;text-decoration:none;color:inherit;}/*!sc*/
+data-styled.g3[id="sc-gsTCUz"]{content:"mOaTa,czwsVI,"}/*!sc*/
+.eBRKEy{margin-right:0px;margin-left:0px;}/*!sc*/
+.eBRKEy svg{display:inline-block;font-size:inherit;height:2em;overflow:visible;vertical-align:-0.125em;}/*!sc*/
+data-styled.g5[id="sc-hKgILt"]{content:"eBRKEy,"}/*!sc*/
+.cTUGC{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.eVmXIF{-webkit-text-decoration:none;text-decoration:none;border-bottom:2px solid #5E81AC;padding-bottom:0.25rem;}/*!sc*/
+data-styled.g6[id="sc-eCssSg"]{content:"cTUGC,eVmXIF,"}/*!sc*/
+.gEtXUX{font-weight:700;line-height:1.1;font-size:2rem;margin-top:calc(1rem * 2);margin-bottom:calc(1rem / 2);}/*!sc*/
+data-styled.g7[id="sc-jSgupP"]{content:"gEtXUX,"}/*!sc*/
+.hJbvYx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin:calc(1rem * 2) 0;}/*!sc*/
+data-styled.g8[id="sc-gKsewC"]{content:"hJbvYx,"}/*!sc*/
+.hAZGxA{width:90vw;max-width:50rem;margin:calc(1rem * 2) auto;}/*!sc*/
+data-styled.g9[id="sc-iBPRYJ"]{content:"hAZGxA,"}/*!sc*/
+.lhfTxL{text-align:center;margin-bottom:calc(1rem * 2);}/*!sc*/
+data-styled.g10[id="sc-fubCfw"]{content:"lhfTxL,"}/*!sc*/
+.hehxkJ{margin-top:calc(4 * 1rem);}/*!sc*/
+data-styled.g14[id="sc-iqHYGH"]{content:"hehxkJ,"}/*!sc*/
+.lmrgkl{max-width:100%;height:auto;}/*!sc*/
+data-styled.g15[id="sc-crrsfI"]{content:"lmrgkl,"}/*!sc*/
+.kwXQlN{font-weight:700;line-height:1.2;font-size:1.1255627110078346rem;}/*!sc*/
+data-styled.g16[id="sc-dQppl"]{content:"kwXQlN,"}/*!sc*/
+.bDjvgx{background:#ffffff;border-width:1px;border-style:solid;border-color:transparent;height:100%;max-width:20rem;-webkit-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}/*!sc*/
+.bDjvgx:hover{border-bottom-color:#5E81AC;-webkit-transform:translateY(-1%);-ms-transform:translateY(-1%);transform:translateY(-1%);}/*!sc*/
+data-styled.g17[id="sc-bqyKva"]{content:"bDjvgx,"}/*!sc*/
+.lhHeZv{background:#ffffff;}/*!sc*/
+data-styled.g18[id="sc-kstrdz"]{content:"lhHeZv,"}/*!sc*/
+.gLhwlW{color:#5E81AC;text-align:center;padding:calc(1rem * 2);}/*!sc*/
+data-styled.g19[id="sc-hBEYos"]{content:"gLhwlW,"}/*!sc*/
+.iEBpuL{display:grid;grid-gap:1rem;grid-template-columns:repeat(auto-fill,minmax(10rem,15rem));-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}/*!sc*/
+data-styled.g20[id="sc-fodVxV"]{content:"iEBpuL,"}/*!sc*/
+</style></head><body><link href="/js/prism-nord.css" rel="stylesheet"><header class="sc-gKsewC hJbvYx"><nav><ul class="sc-bdfBwQ kQMdaH"><li><a title="Back to the homepage" href="/" class="sc-gsTCUz mOaTa sc-eCssSg cTUGC"><span class="sc-dlfnbm sc-hKgILt eBRKEy"><svg aria-hidden="true" data-icon="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0016 16l112.06-.29a16 16 0 0015.92-16V368a16 16 0 0116-16h64a16 16 0 0116 16v95.64a16 16 0 0016 16.05L464 480a16 16 0 0016-16V300L295.67 148.26a12.19 12.19 0 00-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 00-12-12h-56a12 12 0 00-12 12v72.61L318.47 43a48 48 0 00-61 0L4.34 251.47a12 12 0 00-1.6 16.9l25.5 31A12 12 0 0045.15 301l235.22-193.74a12.19 12.19 0 0115.3 0L530.9 301a12 12 0 0016.9-1.6l25.5-31a12 12 0 00-1.7-16.93z"></path></svg></span></a></li><li><a title="The blog" href="/blog/" class="sc-gsTCUz mOaTa sc-eCssSg eVmXIF"><span class="sc-dlfnbm sc-hKgILt eBRKEy"></span>Blog</a></li></ul></nav></header><h1 class="sc-jSgupP gEtXUX sc-fubCfw lhfTxL">Blog</h1><main class="sc-iBPRYJ hAZGxA"><ul class="sc-bdfBwQ hcOIfc sc-fodVxV iEBpuL"><li><a href="/blog/2023/12/30/genai/" class="sc-gsTCUz czwsVI"><article class="sc-bqyKva bDjvgx"><aside class="sc-kstrdz lhHeZv"><img src="/img/mind-genai.jpeg" alt="Inside the Brain of Generative AI - How It Comes Up with New Ideas!!." width="1280px" height="853px" loading="lazy" class="sc-crrsfI lmrgkl"></aside><header class="sc-hBEYos gLhwlW"><h2 class="sc-dQppl kwXQlN">Inside the Brain of Generative AI - How It Comes Up with New Ideas!!.</h2></header></article></a></li><li><a href="/blog/2023/10/15/dockerpost/" class="sc-gsTCUz czwsVI"><article class="sc-bqyKva bDjvgx"><aside class="sc-kstrdz lhHeZv"><img src="/img/dockerart.png" alt="7 Everyday Docker Hacks - Making Life a Byte Easier!" width="1280px" height="853px" loading="lazy" class="sc-crrsfI lmrgkl"></aside><header class="sc-hBEYos gLhwlW"><h2 class="sc-dQppl kwXQlN">7 Everyday Docker Hacks - Making Life a Byte Easier!</h2></header></article></a></li></ul><div aria-hidden="true" size="4" class="sc-iqHYGH hehxkJ"></div></main><script>const THEME = { colors: {"background":"#ffffff","backgroundDark":"#ffffff","primary":"#5E81AC","white":"#3B4252","grey":"#5E81AC"}, type: {"fontSans":" -apple-system, BlinkMacSystemFont,\n    “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”,\n    “Fira Sans”, “Droid Sans”, “Helvetica Neue”,\n    sans-serif","fontMono":"source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace","leading":1.4,"root":"112.5%","base":"1rem","headingsBase":2,"scale":1.333}}</script><script>document.documentElement.className = 'js';
+document.getElementById('currentYear').innerText = new Date().getFullYear();
+</script></body></html>
