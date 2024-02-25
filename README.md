@@ -1,123 +1,314 @@
-# eleventy-base-blog v8
+# eleventy-react
 
-A starter repository showing how to build a blog with the [Eleventy](https://www.11ty.dev/) site generator (using the [v2.0 release](https://www.11ty.dev/blog/eleventy-v2/)).
+> Use [React](https://reactjs.org/) components in [Eleventy](https://www.11ty.dev/).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/802669dd-d5f8-4d49-963d-6d57b257c2a2/deploy-status)](https://app.netlify.com/sites/eleventy-base-blog/deploys)
+If you want a lighter version, without eleventy dependency, try [pequeno](https://github.com/signalkuppe/pequeno)
 
-## Getting Started
+## Demo
 
-* [Want a more generic/detailed getting started guide?](https://www.11ty.dev/docs/getting-started/)
+[https://eleventy-react.netlify.app/](https://eleventy-react.netlify.app/)
 
-1. Make a directory and navigate to it:
+## Why
 
+Eleventy is a great static site generator, but I don’t like template engines.
+They introduce a lot of custom syntax, and it’s almost impossibile to convert them to a component-based dev flow.
+
+## Installation
+
+### 1. Clone or download the repository
+
+```shell
+git clone git@github.com:signalkuppe/eleventy-react.git eleventy-react
 ```
-mkdir my-blog-name
-cd my-blog-name
+
+### 2. Go to the working directory
+
+```shell
+cd eleventy-react
 ```
 
-2. Clone this Repository
+### 3. Install the project dependencies
 
-```
-git clone https://github.com/11ty/eleventy-base-blog.git .
-```
-
-_Optional:_ Review `eleventy.config.js` and `_data/metadata.js` to configure the site’s options and data.
-
-3. Install dependencies
-
-```
+```shell
 npm install
-```
-
-4. Run Eleventy
-
-Generate a production-ready build to the `_site` folder:
 
 ```
-npx @11ty/eleventy
+
+### 3. Run development mode
+
+```shell
+npm run dev
 ```
 
-Or build and host on a local development server:
+Build you site for deploy
 
+```shell
+npm run build
 ```
-npx @11ty/eleventy --serve
-```
-
-Or you can run [debug mode](https://www.11ty.dev/docs/debugging/) to see all the internals.
 
 ## Features
 
-- Using [Eleventy v2.0](https://www.11ty.dev/blog/eleventy-v2/) with zero-JavaScript output.
-	- Content is exclusively pre-rendered (this is a static site).
-	- Can easily [deploy to a subfolder without changing any content](https://www.11ty.dev/docs/plugins/html-base/)
-	- All URLs are decoupled from the content’s location on the file system.
-	- Configure templates via the [Eleventy Data Cascade](https://www.11ty.dev/docs/data-cascade/)
-- **Performance focused**: four-hundos Lighthouse score out of the box!
-	- [View the Lighthouse report for the latest build](https://eleventy-base-blog.netlify.app/reports/lighthouse/) courtesy of the [Netlify Lighthouse plugin](https://github.com/netlify/netlify-plugin-lighthouse).
-	- _0 Cumulative Layout Shift_
-	- _0ms Total Blocking Time_
-- Local development live reload provided by [Eleventy Dev Server](https://www.11ty.dev/docs/dev-server/).
-- Content-driven [navigation menu](https://www.11ty.dev/docs/plugins/navigation/)
-- [Image optimization](https://www.11ty.dev/docs/plugins/image/) via the `{% image %}` shortcode.
-	- Zero-JavaScript output.
-	- Support for modern image formats automatically (e.g. AVIF and WebP)
-	- Prefers `<img>` markup if possible (single image format) but switches automatically to `<picture>` for multiple image formats.
-	- Automated `<picture>` syntax markup with `srcset` and optional `sizes`
-	- Includes `width`/`height` attributes to avoid [content layout shift](https://web.dev/cls/).
-	- Includes `loading="lazy"` for native lazy loading without JavaScript.
-	- Includes [`decoding="async"`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding)
-	- Images can be co-located with blog post files.
-	- View the [Image plugin source code](https://github.com/11ty/eleventy-base-blog/blob/main/eleventy.config.images.js)
-- Per page CSS bundles [via `eleventy-plugin-bundle`](https://github.com/11ty/eleventy-plugin-bundle).
-- Built-in [syntax highlighter](https://www.11ty.dev/docs/plugins/syntaxhighlight/) (zero-JavaScript output).
-- Blog Posts
-	- Draft posts: use `draft: true` to mark a blog post as a draft. Drafts are **only** included during `--serve`/`--watch` and are excluded from full builds. View the [Drafts plugin source code](https://github.com/11ty/eleventy-base-blog/blob/main/eleventy.config.drafts.js).
-	- Automated next/previous links
-	- Accessible deep links to headings
-- Generated Pages
-	- Home, Archive, and About pages.
-	- [Feeds for Atom and JSON](https://www.11ty.dev/docs/plugins/rss/)
-	- `sitemap.xml`
-	- Zero-maintenance tag pages ([View on the Demo](https://eleventy-base-blog.netlify.app/tags/))
-	- Content not found (404) page
+### Integration with data file and custom template data
 
-## Demos
+just add a `data export` to your jsx file
 
-- [Netlify](https://eleventy-base-blog.netlify.com/)
-- [GitHub Pages](https://11ty.github.io/eleventy-base-blog/)
-- [Remix on Glitch](https://glitch.com/~11ty-eleventy-base-blog)
+```js
+import React from 'react';
+import DefaultLayout from '../components/layout/Default';
+import P from '../components/primitives/P';
+import Span from '../components/primitives/Span';
+import H1 from '../components/primitives/H1';
 
-## Deploy this to your own site
+// custom template data
+export const data = {
+    name: 'John Doe',
+};
 
-Deploy this Eleventy site in just a few clicks on these services:
+export default function Index({ site, name }) {
+    // site comes from site.js data file in _data
+    const { title } = site;
 
-- [Get your own Eleventy web site on Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/11ty/eleventy-base-blog)
-- If you run Eleventy locally you can drag your `_site` folder to [`drop.netlify.com`](https://drop.netlify.com/) to upload it without using `git`.
-- [Get your own Eleventy web site on Vercel](https://vercel.com/import/project?template=11ty%2Feleventy-base-blog)
-- Read more about [Deploying an Eleventy project](https://www.11ty.dev/docs/deployment/) to the web.
-
-### Implementation Notes
-
-- `content/about/index.md` is an example of a content page.
-- `content/blog/` has the blog posts but really they can live in any directory. They need only the `posts` tag to be included in the blog posts [collection](https://www.11ty.dev/docs/collections/).
-- Use the `eleventyNavigation` key (via the [Eleventy Navigation plugin](https://www.11ty.dev/docs/plugins/navigation/)) in your front matter to add a template to the top level site navigation. This is in use on `content/index.njk` and `content/about/index.md`.
-- Content can be in _any template format_ (blog posts needn’t exclusively be markdown, for example). Configure your project’s supported templates in `eleventy.config.js` -> `templateFormats`.
-- The `public` folder in your input directory will be copied to the output folder (via `addPassthroughCopy` in the `eleventy.config.js` file). This means `./public/css/*` will live at `./_site/css/*` after your build completes.
-- Provides two content feeds:
-	- `content/feed/feed.njk`
-	- `content/feed/json.njk`
-- This project uses three [Eleventy Layouts](https://www.11ty.dev/docs/layouts/):
-	- `_includes/layouts/base.njk`: the top level HTML structure
-	- `_includes/layouts/home.njk`: the home page template (wrapped into `base.njk`)
-	- `_includes/layouts/post.njk`: the blog post template (wrapped into `base.njk`)
-- `_includes/postslist.njk` is a Nunjucks include and is a reusable component used to display a list of all the posts. `content/index.njk` has an example of how to use it.
-
-If your site enforces a Content Security Policy (as public-facing sites should), either, in `base.njk`, disable
-```html
-<style>{% getBundle "css" %}</style>
+    return (
+        <DefaultLayout>
+            <H1>{title}</H1>
+            <P>
+                This name is from custom template data: <Span bold>{name}</Span>
+            </P>
+        </DefaultLayout>
+    );
+}
 ```
-and enable
-```html
-<link rel="stylesheet" href="{% getBundleFileUrl "css" %}">
+
+### Support for pagination: you can generate pages from data
+
+```js
+import React from 'react';
+import { slug } from './utils/user';
+import DefaultLayout from '../components/layout/Default';
+import H1 from '../components/primitives/H1';
+
+/**
+ * A template that renders a page for each user in the users collection
+ */
+
+export const data = {
+    pagination: {
+        data: 'users',
+        size: 1,
+        alias: 'user',
+    },
+    permalink: function (data) {
+        return slug(data.user);
+    },
+};
+
+export default function User({ site, user }) {
+    return (
+        <DefaultLayout>
+            <H1>{user.name}</H1>
+        </DefaultLayout>
+    );
+}
 ```
-or configure the server with the CSP directive `style-src: 'unsafe-inline'` (which is less secure).
+
+### Support for markdown content
+
+Write your content in markdown format, and use .jsx files as layouts. Print html markup with a custom withHtml HOC that uses our primitives styles
+
+`_includes/layouts/post.jsx`
+
+```js
+import React from 'react';
+import DefaultLayout from '../../../components/layout/Default';
+import Section from '../../../components/primitives/Section';
+import Img from '../../../components/primitives/Img';
+import Span from '../../../components/primitives/Span';
+import VerticalSpace from '../../../components/ui/VerticalSpace';
+import withHtml from '../../../components/hoc/withHtml';
+import { postSlug } from '../../../components/features/posts/utils';
+
+/**
+ * A template that renders a page for each post in the post collection (_posts/*.md)
+ */
+
+const PostBodySection = withHtml(Section);
+
+export const data = {
+    permalink: function (data) {
+        return postSlug(data.page);
+    },
+};
+
+export default function Post(data) {
+    const { title, content, cover, tags } = data;
+    return (
+        <DefaultLayout>
+            <Img src={cover} alt={title} />
+            <PostBodySection>{content}</PostBodySection>
+            {tags?.length && (
+                <>
+                    <VerticalSpace />
+                    {tags.map((tag, i) => (
+                        <Span key={i} italic>
+                            {tag}
+                            {i < tags.length - 1 && ', '}
+                        </Span>
+                    ))}
+                </>
+            )}
+        </DefaultLayout>
+    );
+}
+```
+
+### Integration with styled components
+
+styles are extracted and inserted into the `<head>` tag
+
+```js
+import React from 'react';
+import styled from 'styled-components';
+
+const StyledText = styled.span`
+    font-weight: ${(props) => {
+        if (props.bold) {
+            return 700;
+        } else {
+            return 400;
+        }
+    }};
+`;
+
+export default function Span({ children, ...props }) {
+    return <StyledText {...props}>{children}</StyledText>;
+}
+```
+
+### Integration with [storybook](https://storybook.js.org/)
+
+Develop your UI in isolation adding stories for your components and run storybook with
+
+```shell
+npm run storybook
+```
+
+Build storybook inside eleventy’s \_site folder
+
+```shell
+npm run build-storybook
+```
+
+stories are written in [.mdx](https://storybook.js.org/docs/react/writing-docs/mdx) format
+
+### Some basic scaffolding included
+
+basic ui/primitives/features components included to give an idea of the approach
+
+### Inline svg parser included
+
+import and use inline svgs in your react components
+
+### Babel plugins included
+
+-   @babel/plugin-proposal-optional-chaining
+
+## Dealing with client-side js
+
+**React is not included in the build,** so you can use any js approach on the client.
+I think that adding hydration would go against Eleventy’s philosophy.
+
+Developers like to write code in a **component-fashioned way** so there’s a helper to deal with client-side js code.
+
+Say you have **a component that need some vanilla client-side js logic** and maybe an external library, like an [accordion](https://github.com/signalkuppe/fisarmonica).
+Just add the `<Script>` component in you code like this
+
+```js
+import React, { Fragment } from 'react';
+import Dl from '../../primitives/Dl';
+import Dt from '../../primitives/Dt';
+import Dd from '../../primitives/Dd';
+import Button from '../../primitives/Button';
+import Script, { outputLibDir } from '../Script';
+import client from './index.client.js';
+
+export default function Accordion({ items }) {
+    return (
+        <>
+            <Dl reset id="accordion">
+                {items.map((item, i) => (
+                    <Fragment key={i}>
+                        <Dt>
+                            <Button>{item.title}</Button>
+                        </Dt>
+                        <Dd>{item.description}</Dd>
+                    </Fragment>
+                ))}
+            </Dl>
+            <Script
+                libs={[
+                    {
+                        js: `/${outputLibDir}/fisarmonica/src/fisarmonica.js`,
+                        css: `/${outputLibDir}/fisarmonica/src/fisarmonica.css`,
+                    },
+                ]}
+            >
+                {client}
+            </Script>
+        </>
+    );
+}
+```
+
+With the libs param **you can add as many libraries as you want,** adding the required js and css files.
+**Write you logic in a .client.js file** in the component folder, import it and place it as a children of the `<Script>` component.
+
+Styles and scripts will be extracted at build time and placed in the right place in the DOM.
+There is also a Storybook decorator that adds the client-side logic to stories
+
+Be sure to pass the libs installed via npm to the output folder in the `.eleventy.js` config file.
+
+```js
+// add this client side js lib to our otuput dir
+
+eleventyConfig.addPassthroughCopy({
+    'node_modules/fisarmonica': `${config.outputLibDir}/fisarmonica`,
+});
+```
+
+### Theme variables are exposed to the client
+
+Sometimes you have to use your theme variables in client-side logic.
+A global `THEME` variable containing our styled-components settings is exposed to the client.
+
+```js
+const THEME = {
+    colors: {
+        background: '#282c34',
+        backgroundDark: '#20232a',
+        primary: '#61dafb',
+        white: 'white',
+        grey: '#32363e',
+    },
+    type: {
+        fontSans: '-apple-system, “Segoe UI”, “Roboto”',
+        fontMono: 'source-code-pro, Menlo, Monaco, Consolas, monospace',
+        leading: 1.4,
+        root: '112.5%',
+        base: '1rem',
+        headingsBase: 2,
+        scale: 1.333,
+    },
+};
+```
+
+## TODO
+
+-   reduce storybook bundle site for production build
+-   test other eleventy’s features
+-   use React components in \_data files
+
+## Warnings
+
+_⚠️ very much a work in progress_
+
+Requires experimental features in Eleventy, specifically: [Custom File Extension Handlers feature from Eleventy](https://github.com/11ty/eleventy/issues/117)
