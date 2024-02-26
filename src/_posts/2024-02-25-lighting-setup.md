@@ -6,9 +6,9 @@ tags: lighting
 cover: /img/phone-mount.jpg
 ---
 
-I spent the whole day in front of the screen. I want to take a break from it now and spend some time with myself enjoying this journaling session. I spent the whole day watching YouTube videos of font and pens, their inks, different brands of font and pens, types of nibs they use, the history of font and pens and why people still use font and pens, etc. In the end I ended up buying one. It's called Lamy Safari. I never even heard of that brand before.
+I spent the whole day in front of the screen. I want to take a break from it now and spend some time with myself enjoying this journaling session. I spent the whole day watching YouTube videos of fountain pens, their inks, different brands of fountain pens, types of nibs they use, the history of font and pens and why people still use fountain pens, etc. In the end I ended up buying one. It's called Lamy Safari. I never even heard of that brand before.
 
-I am currently holding a Sigma Micron fine line pen. Pravalli, my dear wife got me this pen for me when she was coming from India to the USA for the first time. I cherished these pens. She brought me a set of pens. Each pen has a different color I think. I don't like losing these pens, so I don't let Pravalli borrow them.
+I am currently holding a Sigma Micron fine line pen. Pravalli, my dear wife got me this pen for me when she was coming from India to the USA for the first time. I cherish these pens. She brought me a set of pens. Each pen has a different color. I don't like losing these pens, so I don't let Pravalli borrow them.
 
 After writing the above paragraph, I cleaned my desk. I tried to make my desk optimized for a good reading and writing experience. It's clean now and less cluttered. I disconnected my keyboard to get more space. I am currently using the Moonlander Mark 1 keyboard. It's big! Occupies a lot of space on my desk. It's nice to see all the space freed up.
 
@@ -26,7 +26,7 @@ Skylight is taller than me. Its pole is made of a ferromagnetic substance. The l
 
 The bike headlight is nice and bright. I rarely use it on the bike. So if I'm going to use it on my desk, I need to have a way to attach and detach it both on my bike and near my desk frequently.
 
-The phone mount is a very odd looking product. When I show this item alone nobody was able to figure out the purpose of the product. It has a strong flat magnet that attaches to a phone and a flat tongue like protrusion that attaches or hooks into the AC vent of the car.
+The phone mount is a very odd looking product. When I showed this item alone, nobody was able to figure out the purpose of the product. It has a strong flat magnet that attaches to a phone and a flat tongue like protrusion that attaches or hooks into the AC vent of the car.
 
 ![](/img/phone-mount.jpg)
 
