@@ -1,3 +1,3 @@
-This web page consists of my personal information, skills, and projects. 
+This web page consists of my profile information, skills, and projects. 
 
 ### Thank you!
