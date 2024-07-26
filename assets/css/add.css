@@ -82,3 +82,61 @@
     color: #e74c3c;
     margin-right: 0.5em;
 }
+
+.hexagon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+  }
+  
+  .hexagon {
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .hexagon:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .hexagon-content {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    max-width: 250px;
+  }
+  
+  .hexagon-content h3 {
+    text-align: center;
+    color: #4a90e2;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .hexagon-content p {
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+  }
+  
+  .hexagon {
+    animation: pulse 2s infinite;
+  }

@@ -2010,7 +2010,7 @@ input, select, textarea {
 
 		.wrapper.style3 {
 			background-color: #f4f4f4;
-			/* text-shadow: 1px 1px 0px #fff; */
+			text-shadow: 1px 1px 0px #fff;
 		}
 
 		.wrapper.style4 {
@@ -2028,14 +2028,14 @@ input, select, textarea {
 			.wrapper.style4 form select,
 			.wrapper.style4 form textarea {
 				border: none;
-				background: #282828;
+				background: #ffffff;
 			}
 
 				.wrapper.style4 form input[type=text]:focus,
 				.wrapper.style4 form input[type=password]:focus,
 				.wrapper.style4 form select:focus,
 				.wrapper.style4 form textarea:focus {
-					background: #252525;
+					background: #ffffff;
 				}
 
 /* Nav */
