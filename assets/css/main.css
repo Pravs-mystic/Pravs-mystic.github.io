@@ -98,7 +98,7 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		font-family: 'Open Sans', sans-serif;
+		font-family: 'Arial', sans-serif;
 		line-height: 1.85em;
 		color: #888;
 		font-weight: 300;
@@ -2005,18 +2005,18 @@ input, select, textarea {
 
 		.wrapper.style2 {
 			background-color: #fafafa;
-			text-shadow: 1px 1px 0px #fff;
+			/* text-shadow: 1px 1px 0px #fff; */
 		}
 
 		.wrapper.style3 {
 			background-color: #f4f4f4;
-			text-shadow: 1px 1px 0px #fff;
+			/* text-shadow: 1px 1px 0px #fff; */
 		}
 
 		.wrapper.style4 {
 			background-color: #303030;
 			color: #999;
-			text-shadow: -1px -1px 0px #181818;
+			/* text-shadow: -1px -1px 0px #181818; */
 		}
 
 			.wrapper.style4 h1, .wrapper.style4 h2, .wrapper.style4 h3, .wrapper.style4 h4, .wrapper.style4 h5, .wrapper.style4 h6 {

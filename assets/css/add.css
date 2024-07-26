@@ -1,0 +1,84 @@
+.skills-container {
+    background-color: rgb(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    margin: 2em;
+    overflow: hidden;
+
+  }
+  
+  .skills-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .right-to-left {
+    flex-direction: row-reverse;
+  }
+  
+  .skill-category {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0 10px;
+    flex: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .skill-category:hover {
+    transform: translateY(-5px);
+  }
+  
+  .skill-category h4 {
+    color: #1a86b1;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .skill-category p {
+    color: #000000;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+
+
+
+  @media (max-width: 768px) {
+    .skills-row {
+      flex-direction: column;
+    }
+    .skill-category {
+      margin-bottom: 15px;
+    }
+  }
+
+  
+  @keyframes subtleSlideLeft {
+    0%, 100% { transform: translateX(0); }
+    80% { transform: translateX(-10px); }
+  }
+  
+  @keyframes subtleSlideRight {
+    0%, 100% { transform: translateX(0); }
+    80% { transform: translateX(10px); }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .left-to-right .skill-category {
+      animation: subtleSlideLeft 3s ease-in-out infinite;
+    }
+  
+    .right-to-left .skill-category {
+      animation: subtleSlideRight 3s ease-in-out infinite;
+    }
+  }
+
+  .resume-box .pdf-preview i {
+    font-size: 2em;
+    color: #e74c3c;
+    margin-right: 0.5em;
+}
