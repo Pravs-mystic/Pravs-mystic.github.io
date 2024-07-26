@@ -9,34 +9,6 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/add.css">
 
-		<style>
-			.bg-image {
-				background-size: cover;
-				background-position: center;
-				background-repeat: no-repeat;
-				position: relative;
-			}
-		
-			.bg-image::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				/* background-color: rgba(255, 255, 255, 0.7); Adjust the last value (0.7) for transparency */
-			}
-		
-			.bg-image .container {
-				position: relative;
-				z-index: 1;
-			}
-
-			#top { background-image: url('gifs/greenv.gif'); background-color: rgba(255, 255, 255, 0.1); }
-			#work { background-image: url('images/tex.jpg'); background-color: rgba(255, 255, 255, 0.7); }
-			#portfolio { background-image: url('images/tex2.jpg'); background-color: rgba(255, 255, 255, 0.7); }
-			#contact { background-image: url('images/tex2.jpg'); background-color: rgba(255, 255, 255, 0.7); }
-		</style>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-69NMJS4KLL"></script>
 	<script>
@@ -268,29 +240,9 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
-				const form = document.getElementById('contactForm');
-				form.addEventListener('submit', function(e) {
-					e.preventDefault();
-					fetch(form.action, {
-						method: 'POST',
-						body: new FormData(form),
-						headers: {
-							'Accept': 'application/json'
-						}
-					}).then(response => {
-						if (response.ok) {
-							alert('Message sent successfully!');
-							form.reset();
-						} else {
-							alert('Oops! There was a problem sending your message.');
-						}
-					}).catch(error => {
-						alert('Oops! There was a problem sending your message.');
-						console.error(error);
-					});
-				});
-			</script>
+			<script src="assets/js/form.js"></script>
+
+
 
 	</body>
 </html>

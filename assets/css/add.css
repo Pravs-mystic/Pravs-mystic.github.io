@@ -140,3 +140,30 @@
   .hexagon {
     animation: pulse 2s infinite;
   }
+
+  .bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .bg-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background-color: rgba(255, 255, 255, 0.7); Adjust the last value (0.7) for transparency */
+  }
+
+  .bg-image .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  #top { background-image: url('../../gifs/greenv.gif'); background-color: rgba(255, 255, 255, 0.1); }
+  #work { background-image: url('../../images/tex.jpg'); background-color: rgba(255, 255, 255, 0.7); }
+  #portfolio { background-image: url('../../images/tex2.jpg'); background-color: rgba(255, 255, 255, 0.7); }
+  #contact { background-image: url('../../images/tex2.jpg'); background-color: rgba(255, 255, 255, 0.7); }
