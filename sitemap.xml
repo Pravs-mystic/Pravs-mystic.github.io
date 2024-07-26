@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://your-website-url.com/</loc>
+    <loc>https://pravs-mystic.github.io/</loc>
     <lastmod>2023-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://your-website-url.com/#top</loc>
+    <loc>https://pravs-mystic.github.io/page1</loc>
     <lastmod>2023-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-website-url.com/#work</loc>
+    <loc>https://pravs-mystic.github.io/page2</loc>
     <lastmod>2023-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-website-url.com/#portfolio</loc>
+    <loc>https://pravs-mystic.github.io/page3</loc>
     <lastmod>2023-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-website-url.com/#contact</loc>
+    <loc>https://pravs-mystic.github.io/page4</loc>
     <lastmod>2023-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-website-url.com/pdfs/Resume.pdf</loc>
+    <loc>https://pravs-mystic.github.io/pdfs/Resume.pdf</loc>
     <lastmod>2023-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
