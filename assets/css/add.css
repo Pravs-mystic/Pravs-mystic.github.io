@@ -167,3 +167,44 @@
   #work { background-image: url('../../images/tex.jpg'); background-color: rgba(255, 255, 255, 0.7); }
   #portfolio { background-image: url('../../images/tex2.jpg'); background-color: rgba(255, 255, 255, 0.7); }
   #contact { background-image: url('../../images/tex2.jpg'); background-color: rgba(255, 255, 255, 0.7); }
+
+  @media screen and (max-width: 736px) {
+    .hexagon-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hexagon {
+        width: 200px;
+        height: 230px;
+        margin: 20px 0;
+    }
+
+    .hexagon-content {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+  .row {
+      flex-direction: column;
+  }
+
+  .col-4, .col-6-medium, .col-12-small {
+      width: 100%;
+      margin-bottom: 2em;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 736px) {
+  #top .image.fit {
+      width: 60%;
+      margin: 0 auto 2em;
+  }
+}
