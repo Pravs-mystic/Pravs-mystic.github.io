@@ -100,7 +100,7 @@ input, select, textarea {
 	body, input, textarea, select {
 		font-family: 'Arial', sans-serif;
 		line-height: 1.85em;
-		color: #888;
+		color: #c9bebe;
 		font-weight: 300;
 		font-size: 13pt;
 	}
@@ -2003,7 +2003,7 @@ input, select, textarea {
 
 		.wrapper.style3 {
 			background-color: #f4f4f4;
-			text-shadow: 1px 1px 0px #fff;
+			/* text-shadow: 1px 1px 0px #fff; */
 		}
 
 		.wrapper.style4 {
