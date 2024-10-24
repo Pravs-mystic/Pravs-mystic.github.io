@@ -205,14 +205,14 @@
 
 .card-content h3 {
     font-size: 1.25rem;
-    color:  #aec1f0;
+    color:   rgb(191, 218, 242);
     text-align: center;
 
 }
 
 .card-content p {
     font-size: 1rem;
-    color: #c9bebe;
+    color: rgb(248, 245, 245);
     text-align: justify;
 }
 
